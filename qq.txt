@@ -1,0 +1,23 @@
+while 1:
+        term = input("")
+        if term == '0':
+            break
+        if database[term] not in list_data:
+            list_data.append(database[term])
+    # 打印前提条件
+    print('前提条件为：')
+    print(' '.join(list_data) + '\n')
+    # 进行递归查找，直到找到最终结果,返回1则找到最终结果
+    end_result=find_data(list_data)
+    if end_result == 1:
+        print('推理过程如下：')
+        # 将结果进行打印
+        for i in dict_input.keys():
+            print(f"{i}->{dict_input[i]}")
+            # 得到最终结果即输出所识别动物
+            if dict_input[i] in result_list:
+                print(f'所识别的动物为{dict_input[i]}')
+    else:
+        # 将结果进行打印
+        for i in dict_input.keys():
+            print(f"{i}->{dict_input[i]}")
